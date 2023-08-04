@@ -5,7 +5,7 @@ let app = express();
 
 console.log("Hello World");
 
-app.use(express.static("public"));
+app.use("/public", express.static("public"));
 
 app.get("/", (req, res) => {
     let apsolutePath = __dirname + "/views/index.html";
