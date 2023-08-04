@@ -1,4 +1,5 @@
 let express = require('express');
+const bodyParser = require("body-parser");
 let app = express();
 
 
@@ -7,6 +8,7 @@ console.log("Hello World");
 
 app.use("/public", express.static("public"));
 app.use(logger);
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
     let apsolutePath = __dirname + "/views/index.html";
