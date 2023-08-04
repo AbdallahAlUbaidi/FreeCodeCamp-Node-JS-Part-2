@@ -38,6 +38,11 @@ app.get("/name", (req, res) => {
     res.json({ name: `${first} ${last}` });
 });
 
+app.post("/name", (req, res) => {
+    const { first, last } = req.body;
+    res.json({ name: `${first} ${last}` });
+});
+
 function logger(req, res, next) {
     console.log(`${req.method} ${req.path} - ${req.ip}`);
     next();
