@@ -6,6 +6,7 @@ let app = express();
 console.log("Hello World");
 
 app.use("/public", express.static("public"));
+app.use(logger);
 
 app.get("/", (req, res) => {
     let apsolutePath = __dirname + "/views/index.html";
@@ -21,7 +22,9 @@ app.get("/json", (req, res) => {
 
 
 
-
+function logger(req, res, next) {
+    console.log(`${req.method} ${req.path} - ${req.ip}`);
+}
 
 
 
