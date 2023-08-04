@@ -5,7 +5,10 @@ let app = express();
 
 console.log("Hello World");
 
-app.get("/", (req, res) => res.send("Hello Express"));
+app.get("/", (req, res) => {
+    let apsolutePath = __dirname + "/views/index.html";
+    res.sendFile(apsolutePath);
+});
 
 
 
